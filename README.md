@@ -1,5 +1,5 @@
 # activemail-scraper
-~~けしからん~~素晴らしいWebメール Active!mail から新着メールを Discord に通知する Python スクリプトです．  
+~~けしからん💢~~素晴らしい✨Webメール「Active!mail」から新着メールを Discord に通知する Python スクリプトです．  
 スクレイピングしているだけです．cron 等で定時実行させると便利だと思います．
 
 
@@ -17,6 +17,11 @@
 * chrome-driver
 
 ## 使い方
+### ダウンロード
+* Git があるとき😄  
+`$ git clone https://github.com/vr-circle/activemail-scraper.git`
+* ないとき😢  
+右上の緑のダウンロードボタンを押して「Download ZIP」で落とせます．
 
 ### ライブラリをインストール
 `$ python3 -m pip install requests selenium`
