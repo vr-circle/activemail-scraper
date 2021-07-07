@@ -1,6 +1,8 @@
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.select import Select
+
 
 # configs - 適宜変更してください
 activemail_url = "https://wam.u-hyogo.ac.jp/am_bin/amlogin"
@@ -32,6 +34,11 @@ def main():
     driver.find_element_by_xpath(
         "/html/body/form/div[3]/table[1]/tbody/tr[2]/td/table/tbody/tr[2]/td/input"
     ).send_keys(passwd)
+
+    # 姫路工学キャンパスを選択
+    Select(driver.find_element_by_xpath(
+        "/html/body/form/div[3]/table[1]/tbody/tr[2]/td/table/tbody/tr[1]/td[2]/select"
+    )).select_by_visible_text("steng.u-hyogo.ac.jp(姫路工学:学生)")
 
     # ログイン
     driver.find_element_by_xpath(
