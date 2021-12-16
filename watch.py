@@ -59,8 +59,14 @@ def main():
             "/html/body/div[1]/div[12]/div[2]/div/table/tbody/tr[2]/td/div/div/table/tbody/tr[" + str(i) + "]/td[6]"
         )
 
+        mail_time = driver.find_element_by_xpath(
+            "/html/body/div[1]/div[12]/div[2]/div/table/tbody/tr[2]/td/div/div/table/tbody/tr[" + str(i) + "]/td[8]"
+        )
+
+        mail_info = mail_title.text + "," + mail_time.text  # CSVで処理するほどでもなかったものの，一応CSVとしても扱える形式に．
+
         # 新着メール判別
-        if mail_title.text not in received_mail_titles:
+        if mail_info not in received_mail_titles:
             # メールを展開
             mail_title.click()
             # 展開されるまで待機
@@ -78,7 +84,7 @@ def main():
             requests.post(webhook_url, content)
 
             # 受信したメールリストに追加
-            f.write(mail_title.text + "\n")
+            f.write(mail_info + "\n")
 
     f.close()
     driver.close()
